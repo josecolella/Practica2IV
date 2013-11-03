@@ -173,7 +173,8 @@ que nuestro usuario tiene un lugar.
 !["Perfil con location"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/withlocation.png)
 
 
-* Conclusión
+Conclusión
+----------
 
 Usar jaulas para la creación y despliegue de aplicaciones es un beneficio para un
 desarrollador debido a que los pone en control de su sistema de despligue.
@@ -190,7 +191,10 @@ hay que instalar las herramientas para instalar la pila de aplicaciones
 necesaria para ejecutar la aplicación, cosa que requiere tiempo del
 desarrollador.
 
+Licencía
+========
 
+Licencía de GNU GENERAL PUBLIC LICENSE. Ver [LICENSE][6] para más detalles.
 
 
 [1]: http://www.steve.org.uk/Software/rinse/
@@ -198,3 +202,4 @@ desarrollador.
 [3]: https://github.com/michaelliao/githubpy
 [4]: https://github.com/josecolella/Practica2IV/blob/master/IVissue.py
 [5]: https://github.com/ajaxorg/node-github
+[6]: https://github.com/josecolella/Practica2IV/blob/master/LICENSE
