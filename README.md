@@ -235,6 +235,7 @@ Se ha hecho un cambio a la aplicación creada para cambiar la ubicación indicad
 en GitHub. En vez de usar linea de comando, he creado una interfaz web con un
 formulario simple, en el cual el usuario mediante ingresar su nombre de usuario
 y contraseña en los campos correspondientes del formulario, hace el cambio.
+La aplicación modificada se puede encontrar [aquí][8]
 
 En la siguiente imagen se puede visualizar la interfaz web que proporciona dicha
 aplicación.
@@ -273,3 +274,4 @@ Licencía de GNU GENERAL PUBLIC LICENSE. Ver [LICENSE][6] para más detalles.
 [5]: https://github.com/ajaxorg/node-github
 [6]: https://github.com/josecolella/Practica2IV/blob/master/LICENSE
 [7]: http://www.tldp.org/HOWTO/Chroot-BIND-HOWTO-2.html
+[8]: https://github.com/josecolella/Practica2IV/blob/master/changingLocation.js
