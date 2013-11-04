@@ -15,9 +15,11 @@ Para la creación la aplicación en la jaula, he seguido los siguientes
 pasos:
 
 > 1. Crear la jaula y hacer ```chroot``` sobre ella.
-> 2. Dentro del jaula, se ha instalado los paquetes necesarios para crear
+> 2. Hay que crear un usuario dentro de la jaula asi tenemos acceso 
+remoto a dicha jaula
+> 3. Dentro del jaula, se ha instalado los paquetes necesarios para crear
 y ejecutar la aplicación.
-> 3. Después de ver que las aplicaciones de han desplegado en la jaula,
+> 4. Después de ver que las aplicaciones de han desplegado en la jaula,
 subimos el código a Github.
 
 
@@ -36,6 +38,36 @@ se hace un chroot, para cambiar el directorio de root a dicha jaula
 ```sh
 chroot /home/ivp2/
 ```
+* Aunque podemos entrar a la jaula, sería beneficial tener un usuario 
+que esta dentro de la jaula, que puede acceder de manera remota.
+
+Antes de entrar a la jaula creamos el usuario usando el siguiente comando:
+
+```sh
+sudo useradd -s /bin/bash -m -d /home/centos6/./home/josecolella -c 
+"CentOS6 josecolella" -g users josecolella
+```
+
+Después de crear el usuario, para que no salga fuera, he restringido los permisos
+usando los siguientes comandos:
+
+```sh
+chown root /home/centos6
+chmod 700 /home/centos6
+chown josecolella:josecolella /home/centos6/./home/josecolella
+chmod 700 /home/centos6/./home/josecolella
+```
+
+Ya definido dichas reglas para el usuario, hay que definir la contraseña para dicho usuario, usando ```sudo passwd josecolella```.
+
+Para acceder usamos el siguiente comando:
+
+```sh
+ssh josecolella@localhost
+```
+
+Cuando estamos dentro de la jaula, el usuario ya no tiene permiso a visualizar cosas
+fuera.
 
 * Estando dentro de la jaula, hay que tener en cuenta que tenemos un sistema
 mínimo, y que hay que instalar todos los paquetes para crear y ejecutar la
@@ -203,3 +235,4 @@ Licencía de GNU GENERAL PUBLIC LICENSE. Ver [LICENSE][6] para más detalles.
 [4]: https://github.com/josecolella/Practica2IV/blob/master/IVissue.py
 [5]: https://github.com/ajaxorg/node-github
 [6]: https://github.com/josecolella/Practica2IV/blob/master/LICENSE
+[7]: http://www.tldp.org/HOWTO/Chroot-BIND-HOWTO-2.html
