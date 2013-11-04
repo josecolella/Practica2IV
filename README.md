@@ -56,7 +56,8 @@ fichero hay que definir el directorio que se aplicará el chroot.
 
 En la siguiente imagen podemos ver el cambio hecho en dicho fichero.
 
--> Imagen
+!["Cambios en /etc/ssh/sshd_config"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/cambiosensshdconfig.png)
+
 
 Después de haber hecho dicha configuración, se reinicia el servicio usando:
 
@@ -87,9 +88,9 @@ ssh p2user@192.168.1.24
 Como podemos ver en la siguiente imagen el usuario puede acceder mediante ssh
 pero esta limitado en lo que puede hacer como vemos en la segunda imagen.
 
--> Imagen 1
+!["ssh de p2user"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/sshp2user.png)
 
--> Imagen 2
+!["Restriciones sobre p2user"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/restrictuser.png)
 
 Cuando estamos dentro de la jaula, el usuario ya no tiene permiso a visualizar cosas
 fuera.
