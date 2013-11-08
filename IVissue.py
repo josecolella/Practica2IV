@@ -43,7 +43,7 @@ class IVIssues:
         # Nos autentificamos en el sistema
         self.gh = GitHub(username=self.username, password=self.password)
 
-    def createIssue(self, titulo, cuerpo, assignee=None):
+    def createIssue(self, titulo, cuerpo, assignee=None, labels=None):
         """
         Metodo usado para crear un issue en el repositorio de
         la asignatura IV (GII-2013)
@@ -52,16 +52,21 @@ class IVIssues:
         y el cuerpo. Opcionalmente se puede asignar a un usuario con
         un tercer parametro
 
+        El parametro details puede contener información sobre a quien esta asignado
+        la label
         Ejemplo de uso:
         python IVIssues user userpassword "create" "Problema" "El ejecutable esta mal"
         """
-        if not assignee:
+        if assignee is None and labels is None:
             # Crea un issue en el repositorio
             self.gh.repos('IV-GII')('GII-2013').issues.post(
                 title=titulo, body=cuerpo)
         else:
             self.gh.repos('IV-GII')('GII-2013').issues.post(
-                title=titulo, body=cuerpo, assignee=assignee)
+                title=titulo,
+                body=cuerpo,
+                assignee=assignee,
+                labels=labels)
 
     def editIssue(self, titulo, cuerpo, assignee=None):
         """
@@ -77,7 +82,7 @@ class IVIssues:
         """
         issue = self.gh.repos('IV-GII')('GII-2013').issues.get()
         issueNum = issue[0]['number']
-        if not assignee:
+        if assignee is not None:
             self.gh.repos('IV-GII')('GII-2013').issues(
                 issueNum).patch(title=titulo, body=cuerpo)
         else:
@@ -100,11 +105,12 @@ class IVIssues:
         return issueList
 
 if __name__ == '__main__':
-    #try:
+    # try:
         iv = IVIssues(sys.argv[1], sys.argv[2])
         if sys.argv[3] == "create":
-            if len(sys.argv) == 7:
-                iv.createIssue(sys.argv[4], sys.argv[5], sys.argv[6])
+            if len(sys.argv) == 8:
+                iv.createIssue(
+                    sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
             else:
                 iv.createIssue(sys.argv[4], sys.argv[5])
         elif sys.argv[3] == "edit":
@@ -119,5 +125,4 @@ if __name__ == '__main__':
                 print(iv.getOpenIssues())
     #except Exception:
     #    print("Error: Numero de argumentos invalido")
-    #   print(
-    #        u"Example: python IVissue [nombre de usuario][contraseña][get | create | edit] [args]")
+    #    print(u"Example: python IVissue[nombre de usuario][contraseña][get | create | edit][args]")
