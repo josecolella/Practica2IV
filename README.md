@@ -166,6 +166,16 @@ En la imagen anterior se puede ver como se interacciona con la aplicación.
 
 !["Se puede ver que se ha creado el issue"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/success.png)
 
+### *Cambio*
+
+La aplicación de python se ha cambiado para que se pueda crear issues con labels
+como ```question```, ```bug```, etc...
+
+En la siguiente imagen, podemos ver como se puede crear un issue con label y asignarlo
+a [JJ][9].
+
+!["Aplicación ejecutada con asignee e issue"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/PythonIssueLabel.png)
+
 Para la segunda aplicación, en la cual necesitamos ```node```, he descargado
 el paquete oficial. He seguido los siguientes pasos para instalar ```node```
 
