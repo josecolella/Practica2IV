@@ -160,7 +160,9 @@ El código se puede visualizar [aquí][4].
 Para probar que trabaja bien la aplicación, he creado un issue para una
 aplicación de prueba, después cambiando los datos del repositorio y organización.
 
-!["Crear un issue en el repositorio"](https://raw.github.com/josecolella/Practica2IV/master/Screenshots/creating%20an%20issue.png)
+```sh
+python IVissue.py josecolella [password] create "Rails 4" "update to Rails 4"
+```
 
 En la imagen anterior se puede ver como se interacciona con la aplicación.
 
