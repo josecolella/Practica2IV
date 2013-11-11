@@ -69,7 +69,7 @@ Ahora se define unas reglas para restringir al usuario ```p2user```
 
 ```sh
 sudo usermod -G ssh p2user
-sudo usermode -s /bin/bash p2user
+sudo usermod -s /bin/bash p2user
 sudo chown root:root /home/ivp2/./home/p2user/
 sudo chmod 0755 /home/ivp2/./home/p2user
 ```
@@ -78,6 +78,10 @@ Lo que se ha hecho con los anteriores comandos es modificar atributos del
 usuario ```p2user```
 
 Ya definido dichas reglas para el usuario, hay que definir la contraseña para dicho usuario, usando ```sudo passwd josecolella```.
+Ya creada la contraseña, se puede acceder de manera remota. Para probar que sirve, he tratado de acceder de un ordenador,
+al ordenador donde esta alojado la aplicación. El IP de dicho servidor en red es ```192.168.1.24```.
+Un correcto comportamiento sería que cuando se trata de acceder de manera remota, el servidor chrootea el usuario en la jaula,
+donde podrá solo acceder a los recursos de dichas jaulas.
 
 Para acceder usamos el siguiente comando:
 
